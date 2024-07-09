@@ -1,0 +1,7 @@
+Scenario: Utilizatorul poate plasa o comanda
+Given: Utilizatorul logat se afla pe pagina unui produs
+And: Utlizatorul compleateaza datele necesare pentru a putea plasa comanda
+When: Utilizatorul da click pe butonul "Continua"
+And: Utilizatorul a fost redirectionat pe pagina Sumar comanda
+And: Utilizatorul da click pe butonul “Plaseaza comanda”
+Then: Utilizatorul ar trebui sa primeasca urmatorul mesaj de succes “Comanda dumneavoastra a fost plasata cu succes” 
