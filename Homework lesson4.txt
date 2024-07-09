@@ -1,4 +1,4 @@
-driver.get(httpsolx.ro);
+driver.get(https://olx.ro);
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(#onetrust-accept-btn-handler)).click();
