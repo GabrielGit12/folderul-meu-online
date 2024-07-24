@@ -1,0 +1,174 @@
+Test Case - Utilizatorul poate plasa o comanda  fara cont de Utilizator 
+
+
+
+
+WebDriverManager.chromedriver().setup();
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("https://sconto.cz");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		
+		driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div/div/form/div[3]/button[2]")).click(); // click accept cookies
+		System.out.println("Cookies done");
+		Date currentDate1 = new Date();
+		System.out.println("Current date in old format: " + currentDate1);
+		String screenshotFileName1 = currentDate1.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName1);
+		File screenshotFile1 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile1, new File(".//screenshot/" + screenshotFileName1 + "cookies.png"));
+		
+		driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/div[3]/div/div/ul/div/div[5]/a/h3")).click(); // click categoria "Satni skrine"
+		System.out.println("Category pick done");
+		Date currentDate2 = new Date();
+		System.out.println("Current date in old format: " + currentDate2);
+		String screenshotFileName2 = currentDate2.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName2);
+		File screenshotFile2 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile2, new File(".//screenshot/" + screenshotFileName2 + "Category click.png"));
+		
+		WebElement Scroll = driver.findElement(By.xpath("//*[@id=\"product_filter_form_parameters\"]/div[1]/span")); // Scroll 
+		System.out.println("Scroll done");
+		Actions PageScroll = new Actions(driver);
+		PageScroll.moveToElement(Scroll);
+		PageScroll.perform();
+		Date currentDate3 = new Date();
+		System.out.println("Current date in old format: " + currentDate3);
+		String screenshotFileName3 = currentDate3.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName3);
+		File screenshotFile3 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile3, new File(".//screenshot/" + screenshotFileName3 + "Scroll.png"));
+		
+		WebElement FilterArrow = driver.findElement(By.xpath("//*[@id=\"js-product-list-wrap\"]/div/div/div[2]/div[2]/div/div[1]/div/div[1]/span/i")); // Mouse Hover
+		System.out.println("mouse hover done");
+		Actions mouseHover = new Actions(driver);
+		mouseHover.clickAndHold(FilterArrow);
+		mouseHover.perform();
+		Date currentDate4 = new Date();
+		System.out.println("Current date in old format: " + currentDate4);
+		String screenshotFileName4 = currentDate4.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName4);
+		File screenshotFile4 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile4, new File(".//screenshot/" + screenshotFileName4 + "mouse hover.png"));
+		
+		
+		driver.findElement(By.xpath("//*[@id=\"js-product-list-wrap\"]/div/div/div[2]/div[2]/div/div[1]/div/div[1]/div[2]/a[2]")).click(); //Sortarea dupa pret 
+		System.out.println("price sorting done");
+		Date currentDate5 = new Date();
+		System.out.println("Current date in old format: " + currentDate5);
+		String screenshotFileName5 = currentDate5.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName5);
+		File screenshotFile5 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile5, new File(".//screenshot/" + screenshotFileName5 + "Price sorted .png"));
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/div[3]/div/div/div[2]/div[2]/div/div[2]/div[1]/div[1]/div/a[2]/h2/span[2]")).click(); //Alege produs
+		System.out.println("product picked done");
+		Date currentDate6 = new Date();
+		System.out.println("Current date in old format: " + currentDate6);
+		String screenshotFileName6 = currentDate6.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName6);
+		File screenshotFile6 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile6, new File(".//screenshot/" + screenshotFileName6 + "product picked .png"));
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/div[3]/div[1]/div/div/div[2]/div/div[2]/div/div[2]/div/form/button")).click(); // adauga in cos
+		System.out.println("sent to Cart done");
+		Date currentDate7 = new Date();
+		System.out.println("Current date in old format: " + currentDate7);
+		String screenshotFileName7 = currentDate7.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName7);
+		File screenshotFile7 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile7, new File(".//screenshot/" + screenshotFileName7 + "sent to Cart .png"));
+		
+		driver.findElement(By.xpath("//*[@id=\"js-window\"]/div[2]/a[1]")).click(); // redirectionare spre cos 
+		System.out.println("redirected to cart done");
+		Date currentDate8 = new Date();
+		System.out.println("Current date in old format: " + currentDate8);
+		String screenshotFileName8 = currentDate8.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName8);
+		File screenshotFile8 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile8, new File(".//screenshot/" + screenshotFileName8 + "redirected to cart .png"));
+		
+		
+		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/form/div[2]/div[1]/div/div/label[2]")).click(); // Radio button click 
+		System.out.println("Radio button done");
+		Date currentDate9 = new Date();
+		System.out.println("Current date in old format: " + currentDate9);
+		String screenshotFileName9 = currentDate9.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName9);
+		File screenshotFile9 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile9, new File(".//screenshot/" + screenshotFileName9 + "Radio button .png"));
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id=\"cart_form_submit\"]")).click(); // Confirm produs ,redirectionare spre adresa + plata 
+		System.out.println("confirm product done");
+		Date currentDate10 = new Date();
+		System.out.println("Current date in old format: " + currentDate10);
+		String screenshotFileName10 = currentDate10.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName10);
+		File screenshotFile10 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile10, new File(".//screenshot/" + screenshotFileName10 + "confirm product .png"));
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id=\"transport_and_payment_form_transportsByProductTypeId_1\"]/label[2]/span[1]/span")).click(); // Delivery method 
+		System.out.println("Delivery method  picked done ");
+		Date currentDate11 = new Date();
+		System.out.println("Current date in old format: " + currentDate11);
+		String screenshotFileName11 = currentDate11.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName11);
+		File screenshotFile11 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile11, new File(".//screenshot/" + screenshotFileName11 + "Delivery method .png"));
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("/html/body/div[5]/div/div[1]/div[2]/label[3]/span[1]")).click(); // Delivery city chose 
+		System.out.println("City choosed done");
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//*[@id=\"js-window\"]/div[2]/a[1]")).click(); // Accept button Pop-window
+		System.out.println("accept button done");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id=\"transport_and_payment_form_payment\"]/label[2]/span[1]/span")).click(); // select payment 
+		System.out.println("payment selected");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//*[@id=\"transport_and_payment_form_save\"]")).click(); // redirect to personal details
+		System.out.println("redirect to personal details ");
+		
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_email\"]")).sendKeys("test@bd.com"); // fill in personal details 
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_telephone\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_telephone\"]")).sendKeys("777123456");
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_firstName\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_firstName\"]")).sendKeys("Testname");
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_lastName\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_lastName\"]")).sendKeys("Testlastname");
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_street\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_street\"]")).sendKeys("na zlate stoce 1862 ");
+		WebElement ScrollToAddress = driver.findElement(By.xpath("//*[@id=\"personal_info_form_save\"]"));
+		Actions ScrollDown = new Actions(driver);
+		ScrollDown.moveToElement(ScrollToAddress);
+		ScrollDown.perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_street\"]")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_street\"]")).sendKeys(Keys.ENTER);
+		Date currentDate12 = new Date();
+		System.out.println("Current date in old format: " + currentDate11);
+		String screenshotFileName12 = currentDate12.toString().replace(":", "-").replace(" ", "-").replace("-EET-2024", "");
+		System.out.println("Current date in new format: " + screenshotFileName12);
+		File screenshotFile12 = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		Files.copy(screenshotFile12, new File(".//screenshot/" + screenshotFileName12 + "personal data .png"));
+		driver.findElement(By.xpath("//*[@id=\"personal_info_form_save\"]")).click();
+		System.out.println("personal data done and submited");
+		
+		WebElement ScrollToCheck = driver.findElement(By.xpath("//*[@id=\"order_summary_form_saveBottom\"]")); // check box to finish order
+		Actions ScrollDownCheck = new Actions(driver);
+		ScrollDownCheck.moveToElement(ScrollToCheck);
+		ScrollDownCheck.perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"js-user-form\"]/div[2]/div/div[3]/div[2]/span/div/div/label")).click();
+		System.out.println("All Worked!");
+
+
+Status - Passed 
